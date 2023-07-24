@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes, RoutesProps } from "react-router-dom";
 
 import { NAVIGATION } from "Configs/navigation";
-import { PhysicsRapierWorldPage } from "Pages/PhysicsRapierWorldPage";
+import { GameWorldPage } from "./GameWorldPage";
 
 /**
  * Router and pages.
@@ -11,7 +11,7 @@ import { PhysicsRapierWorldPage } from "Pages/PhysicsRapierWorldPage";
  */
 const Pages = (props: RoutesProps): JSX.Element => {
   const allPath = "*";
-  const homePath = NAVIGATION.PATH.PHYSICS_RAPIER_WORLD;
+  const homePath = NAVIGATION.PATH.GAME;
   const rootPath = "/";
 
   return (
@@ -20,8 +20,8 @@ const Pages = (props: RoutesProps): JSX.Element => {
       <Route element={<Navigate to={homePath} />} path={rootPath} />
 
       <Route
-        element={<PhysicsRapierWorldPage />}
-        path={NAVIGATION.PATH.PHYSICS_RAPIER_WORLD}
+        element={<GameWorldPage />}
+        path={NAVIGATION.PATH.GAME}
       />
     </Routes>
   );

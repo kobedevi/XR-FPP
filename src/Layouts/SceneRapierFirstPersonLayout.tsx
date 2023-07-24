@@ -1,8 +1,8 @@
 import { KeyboardControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Debug, Physics } from "@react-three/rapier";
+import { Physics } from "@react-three/rapier";
 import { folder, Leva, useControls } from "leva";
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 import { Helpers } from "Components/Helpers";
 import { Lighting } from "Components/Lighting";
@@ -12,6 +12,8 @@ import { SettingsLeva as Settings } from "Settings/Leva";
 import { SettingsLevaCanvas } from "Settings/Leva/Canvas";
 import { SettingsLevaPhysics } from "Settings/Leva/Physics";
 import { LayoutProps } from "Types/LayoutProps";
+import Menu from "Examples/Game/World/Menu";
+import { useGameStore } from "Examples/Game/World/store";
 
 /**
  * Layout for a scene with Rapier physics engine for First Person view.
@@ -19,9 +21,14 @@ import { LayoutProps } from "Types/LayoutProps";
  * @param {LayoutProps} props
  * @returns {JSX.Element}
  */
+
+
+
 const SceneRapierFirstPersonLayout = ({
   children,
 }: LayoutProps): JSX.Element => {
+
+  
   const { flat, frameloop, linear, shadows } = useControls(
     LEVA.SCHEMA.GENERAL,
     {
@@ -46,22 +53,73 @@ const SceneRapierFirstPersonLayout = ({
     },
     Settings.folder(LEVA.ORDER.PHYSICS)
   );
+    
+  const {getControls, getGameState, getScore} = useGameStore((state: { getGameState: any; getControls: any; getScore: any; }) => ({
+    getControls: state.getControls,
+    getGameState: state.getGameState,
+    getScore: state.getScore
+  }));
+
+  const [controls, setControls] = useState(getControls())
+
+  useEffect(() => {
+    // detect change in controls
+    const temp = getControls();
+    if(temp.length > 0) {
+      setControls(temp)
+    }
+  }, [getControls()])
+
+
 
   return (
     <>
       <Canvas
-        camera={undefined}
+        onPointerMove={undefined}
+        camera={{position: [0,6,14], fov: 42}}
         flat={flat}
         frameloop={frameloop}
         linear={linear}
         orthographic={false}
         shadows={shadows}
       >
+        <color attach="background" args={["#dbecfb"]} />
         <Suspense>
           <Helpers />
           <Lighting />
-          <KeyboardControls map={KEYBINDINGS.UNIVERSAL}>
+          {/* DUMB WORKAROUND FOR UPDATING CONTROLS, old method stopped working */}
+          {controls[2]?.keys[1] === 'KeyQ' && (
+            <KeyboardControls map={controls}>
+              <Physics
+                debug={true}
+                colliders={undefined}
+                gravity={[gravity.x, gravity.y, gravity.z]}
+                paused={paused}
+                timeStep="vary"
+                updatePriority={undefined}
+              >
+                {children}
+              </Physics>
+            </KeyboardControls>
+          )}
+          {controls[2]?.keys[1] === 'KeyA' && (
+            <KeyboardControls map={controls}>
+              <Physics
+                debug={true}
+                colliders={undefined}
+                gravity={[gravity.x, gravity.y, gravity.z]}
+                paused={paused}
+                timeStep="vary"
+                updatePriority={undefined}
+              >
+                {children}
+              </Physics>
+            </KeyboardControls>
+          )}
+          {getControls().length === 0 && (
+            <KeyboardControls map={KEYBINDINGS.QWERTY}>
             <Physics
+              debug={true}
               colliders={undefined}
               gravity={[gravity.x, gravity.y, gravity.z]}
               paused={paused}
@@ -69,11 +127,13 @@ const SceneRapierFirstPersonLayout = ({
               updatePriority={undefined}
             >
               {children}
-              {showDebug && <Debug />}
             </Physics>
           </KeyboardControls>
+          )}
         </Suspense>
       </Canvas>
+      <h2 className="playerScore">Score: {getScore()}</h2>
+      <Menu/>
       <Leva
         collapsed={false}
         fill={false}

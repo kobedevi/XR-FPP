@@ -82,18 +82,21 @@ const LightingStudio = (): JSX.Element => {
   const rightLightRef = useRef<DirectionalLight>(null);
 
   useHelper(
+    // @ts-ignore
     helpers ? frontLightRef : null,
     DirectionalLightHelper,
     helperSize * frontLight.intensity,
     frontLight.color
   );
   useHelper(
+    // @ts-ignore
     helpers ? leftLightRef : null,
     DirectionalLightHelper,
     helperSize * leftLight.intensity,
     leftLight.color
   );
   useHelper(
+    // @ts-ignore
     helpers ? rightLightRef : null,
     DirectionalLightHelper,
     helperSize * rightLight.intensity,

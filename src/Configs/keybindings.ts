@@ -2,7 +2,7 @@ import { KeyboardControlsEntry } from "@react-three/drei";
 
 export namespace KEYBINDINGS {
   enum CONTROLS {
-    jump = "jump",
+    shoot = "shoot",
     moveBackward = "moveBackward",
     moveForward = "moveForward",
     moveLeft = "moveLeft",
@@ -42,7 +42,7 @@ export namespace KEYBINDINGS {
   ];
 
   export const OTHER: Array<KeyboardControlsEntry> = [
-    { name: CONTROLS.jump, keys: ["Space"] }, //
+    { name: CONTROLS.shoot, keys: ["Space"] }, //
   ];
 
   export const AZERTY: Array<KeyboardControlsEntry> = [...ZQSD, ...OTHER];

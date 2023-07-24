@@ -1,6 +1,6 @@
 import { GroupProps } from "@react-three/fiber";
 
-import { RapierWorld } from "Examples/Rapier/World";
+import { GameWorld } from "Examples/Game/World/index";
 import { SceneRapierFirstPersonLayout as Layout } from "Layouts/SceneRapierFirstPersonLayout";
 
 /**
@@ -9,12 +9,12 @@ import { SceneRapierFirstPersonLayout as Layout } from "Layouts/SceneRapierFirst
  * @param {GroupProps} props
  * @returns {JSX.Element}
  */
-const PhysicsRapierWorldPage = (props: GroupProps): JSX.Element => {
+const GameWorldPage = (props: GroupProps): JSX.Element => {
   return (
     <Layout>
-      <RapierWorld {...props} />
+      <GameWorld {...props}/>
     </Layout>
   );
 };
 
-export { PhysicsRapierWorldPage };
+export { GameWorldPage };

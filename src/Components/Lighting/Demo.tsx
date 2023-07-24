@@ -120,6 +120,7 @@ const LightingDemo = (): JSX.Element => {
   const spotLightRef = useRef<SpotLight>(null);
 
   useHelper(
+    // @ts-ignore
     helpers ? directionalLightRef : null,
     DirectionalLightHelper,
     helperSize * directionalLight.intensity,
@@ -127,14 +128,20 @@ const LightingDemo = (): JSX.Element => {
   );
 
   useHelper(
+    // @ts-ignore
     helpers ? pointLightRef : null,
     PointLightHelper,
     helperSize * (pointLight.intensity / intensityMax),
     pointLight.color
   );
+    // @ts-ignore
   useHelper(helpers ? spotLightRef : null, SpotLightHelper, spotLight.color);
   useHelper(
+    // @ts-ignore
+
     helpers ? hemisphereLightRef : null,
+    // @ts-ignore
+
     HemisphereLightHelper,
     helperSize * hemisphereLight.intensity
   );

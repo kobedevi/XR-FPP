@@ -9,3 +9,52 @@ body {
   background-color: black;
   margin: 0;
 }
+
+canvas {
+  z-index: 1;
+}
+
+.menu, .playerScore {
+  z-index: 5;
+  font-family: sans-serif;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap:16px;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  transition: all .2s ease-in-out;
+}
+
+.menu button {
+  background-color: rgba(240, 240, 240, 0.6);
+  border: none;
+  padding: 16px 32px;
+  transition: background-color .2s;
+}
+
+.menu button:hover {
+  background: white;
+}
+
+.menu h3{
+  text-align: center;
+}
+
+.menuHide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.playerScore {
+  backdrop-filter: unset;
+  justify-content: flex-start;
+  background: unset;
+  top: 1rem;
+}

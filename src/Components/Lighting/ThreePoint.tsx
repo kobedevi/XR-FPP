@@ -76,8 +76,11 @@ const LightingThreePoint = (): JSX.Element => {
   const fillLightRef = useRef<SpotLight>(null);
   const keyLightRef = useRef<SpotLight>(null);
 
+    // @ts-ignore
   useHelper(helpers ? backLightRef : null, SpotLightHelper, backLight.color);
+    // @ts-ignore
   useHelper(helpers ? fillLightRef : null, SpotLightHelper, fillLight.color);
+    // @ts-ignore
   useHelper(helpers ? keyLightRef : null, SpotLightHelper, keyLight.color);
 
   return (
