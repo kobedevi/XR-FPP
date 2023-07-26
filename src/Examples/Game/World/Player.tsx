@@ -73,10 +73,7 @@ const RapierWorldPlayer = (props: any) => {
 
       const geometry = new BoxGeometry(.2, .2, .2)
       const material = new MeshBasicMaterial({color: 0xffff00})
-      const projectile = new Mesh(geometry, material)
-      if(projectileRef.current) {
-        projectileRef.current.applyImpulse({ x: .3, y: 0, z: 0 }, true);
-      }
+      const projectile = new Mesh(geometry, material);
 
       // @ts-ignore
       setProjectiles((prev) => [...prev, {projectile, carPosition}]);
