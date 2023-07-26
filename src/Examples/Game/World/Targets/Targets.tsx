@@ -1,33 +1,36 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Sphere } from '@react-three/drei';
 import { Mesh, Vector3 } from 'three';
 import { RigidBody, RapierRigidBody, vec3, CuboidCollider } from '@react-three/rapier';
 import { useGameStore } from '../store';
+import { Donutbox } from '../Donutbox';
 
 const MovingTarget = () => {
   const rigidBody = useRef<RapierRigidBody>(null);
 
   const {setScore} = useGameStore((state: { setScore: any;}) => ({
     setScore: state.setScore,
-}));
+  }));
 
-  let direction = 125;
+  let [hitEdge,setHitEdge] = useState(false)
 
-  useFrame(() => {
+  useFrame(({clock}) => {
     if (rigidBody.current) {
       const position = vec3(rigidBody.current.translation());
-      if(direction > 500) {
-        direction = 0;
+      if(position.z < -10) {
+        setHitEdge(false)
       }
-      if(direction > 250) {
+      if(position.z > 10) {
+        setHitEdge(true)
+      }
+      if(hitEdge === false) {
         position.setZ(position.z+.05);
       }
-      if(direction < 250) {
+      if(hitEdge === true) {
         position.setZ(position.z-.05);
       }
       rigidBody.current.setTranslation(position, true)
-      direction++;
     }
   })
 
@@ -39,11 +42,10 @@ const MovingTarget = () => {
         }
       }
     }}>
-      <mesh>
-        <boxBufferGeometry args={[1,1,1]}/>
-        <meshStandardMaterial />
-        <CuboidCollider scale={1} args={[.5, .5, .5]} sensor />
-      </mesh>
+      <boxBufferGeometry args={[1,1,1]}/>
+      <CuboidCollider scale={1} args={[.5, .5, .5]} sensor />
+      <Donutbox scale={1}/>
+
     </RigidBody>
   );
 };

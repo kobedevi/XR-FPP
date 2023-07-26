@@ -1,0 +1,11 @@
+Model Information:
+* title:	Donuts Box
+* source:	https://sketchfab.com/3d-models/donuts-box-6448453b409e45b8a523c0b6958a7de7
+* author:	maypassamon (https://sketchfab.com/maypassamon)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Donuts Box" (https://sketchfab.com/3d-models/donuts-box-6448453b409e45b8a523c0b6958a7de7) by maypassamon (https://sketchfab.com/maypassamon) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
