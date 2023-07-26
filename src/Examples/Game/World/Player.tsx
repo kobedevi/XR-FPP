@@ -1,4 +1,6 @@
 import {
+  CubeCamera,
+  OrbitControls,
   PointerLockControls,
   useGLTF,
   useKeyboardControls,
@@ -9,6 +11,7 @@ import { useRef, useState } from "react";
 import { Car } from "./Car";
 import { BoxGeometry, Euler, Mesh, MeshBasicMaterial, Quaternion } from "three";
 import donut from "./assets/donut.glb";
+import Projectile from "./Projectile";
 
 
 const MOVEMENT_SPEED = 2;
@@ -22,6 +25,7 @@ const RapierWorldPlayer = (props: any) => {
   const moveLeftOn = useKeyboardControls((state) => state.moveLeft);
   const moveRightOn = useKeyboardControls((state) => state.moveRight);
   const shoot = useKeyboardControls((state) => state.shoot);
+  
 
   const playerRef = useRef<any>(null!);
   const pointerRef = useRef<any>(null!);
@@ -39,10 +43,8 @@ const RapierWorldPlayer = (props: any) => {
 
   useFrame(() => {
     const impulse = {x:0, y:0, z:0};
-
     const camera = pointerRef.current.getObject();
     const player = playerRef.current;
-
     const linvel = playerRef['current'].linvel();
     
     
@@ -50,6 +52,10 @@ const RapierWorldPlayer = (props: any) => {
     camera.position.copy(player.translation());
     camera.position.y += 5.25; // 1.75m
     camera.position.z += 10; // 1.75m
+    camera.rotation.y = 0;
+    camera.rotation.z = 0;
+    camera.rotation.x = -0.35;
+    
     // Change rotation of model
     let changeRotation = false;
     
@@ -98,7 +104,7 @@ const RapierWorldPlayer = (props: any) => {
       changeRotation = true;
     }
     if(playerRef['current'] !== null) {
-      playerRef.current.applyImpulse(impulse, true)
+      playerRef.current.applyImpulse(impulse, true);
     }
     if(changeRotation) {
       const angle = Math.atan2(-linvel.x, -linvel.z);
@@ -116,11 +122,12 @@ const RapierWorldPlayer = (props: any) => {
   return (
     <>
       {projectiles.map((projectile, index) => {
-        const clone = donutScene.clone();
         return (
-          <RigidBody ref={projectileRef} name="projectile" key={index} position={[projectile['carPosition']['x'],projectile['carPosition']['y'],projectile['carPosition']['z']]} >
-            <primitive object={clone}/>
-          </RigidBody>
+          // @ts-ignore
+          // <RigidBody ref={projectileRef} onUpdate={() => null} name="projectile" key={index} position={[projectile['carPosition']['x'],projectile['carPosition']['y'],projectile['carPosition']['z']]} >
+          //   <primitive object={clone}/>
+          // </RigidBody>
+          <Projectile key={index} position={[projectile['carPosition']['x'],projectile['carPosition']['y'],projectile['carPosition']['z']]}/>
         )
       })}
       <group name="Player" position={[0, 3, 0]} rotation={[0, 0 , 0]} >
