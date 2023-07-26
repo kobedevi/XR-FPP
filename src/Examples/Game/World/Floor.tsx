@@ -39,6 +39,16 @@ const RapierWorldFloor = (props: any) => {
           <meshStandardMaterial color="white" />
         </Cylinder>
       </RigidBody>
+      <RigidBody
+        type="fixed"
+        position-x={-25}
+        position-y={-0.2}
+        friction={.25}
+      >
+        <Plane args={args} rotation={rotation}>
+          <meshBasicMaterial color={"CadetBlue"} side={DoubleSide} />
+        </Plane>
+      </RigidBody>
     </>
 
   );
