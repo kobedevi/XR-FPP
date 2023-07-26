@@ -13,7 +13,6 @@ const MovingTarget = () => {
 }));
 
   let direction = 125;
-  // let score = 0;
 
   useFrame(() => {
     if (rigidBody.current) {
@@ -22,10 +21,10 @@ const MovingTarget = () => {
         direction = 0;
       }
       if(direction > 250) {
-        position.setX(position.x+.02);
+        position.setZ(position.z+.05);
       }
       if(direction < 250) {
-        position.setX(position.x-.02);
+        position.setZ(position.z-.05);
       }
       rigidBody.current.setTranslation(position, true)
       direction++;
@@ -33,7 +32,7 @@ const MovingTarget = () => {
   })
 
   return (
-    <RigidBody name="target" ref={rigidBody} type="fixed" position={[0,.5,-10]} enabledRotations={[false,false,false]} onIntersectionEnter={({other}) => {
+    <RigidBody name="target" ref={rigidBody} type="fixed" position={[10,.5,0]} enabledRotations={[false,false,false]} onIntersectionEnter={({other}) => {
       if(other.rigidBodyObject !== undefined) {
         if(other.rigidBodyObject.name === "projectile") {
           setScore();
