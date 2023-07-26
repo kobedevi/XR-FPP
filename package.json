@@ -2,7 +2,7 @@
   "name": "first-person-portfolio",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://gdmgent-2223-xr.github.io",
+  "homepage": ".",
   "dependencies": {
     "@react-spring/three": "^9.5.5",
     "@react-three/cannon": "^6.5.0",
