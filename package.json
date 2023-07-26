@@ -2,7 +2,6 @@
   "name": "first-person-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/gdm-xr-fpp",
   "proxy": "https://gdmgent-2223-xr.github.io",
   "dependencies": {
     "@react-spring/three": "^9.5.5",
@@ -25,6 +24,7 @@
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
     "react-three-fiber": "^6.0.13",
+    "serve": "^14.2.0",
     "three": "^0.150.1",
     "three-stdlib": "^2.17.4",
     "web-vitals": "^3.1.0",
@@ -47,7 +47,8 @@
     "eject": "react-scripts eject",
     "yarn:install": "yarn",
     "yarn:outdated": "yarn outdated || cd . ",
-    "yarn:update": "yarn upgrade-interactive --latest"
+    "yarn:update": "yarn upgrade-interactive --latest",
+    "prod": "yarn build && serve docs"
   },
   "eslintConfig": {
     "extends": [

@@ -132,7 +132,9 @@ const SceneRapierFirstPersonLayout = ({
           )}
         </Suspense>
       </Canvas>
-      <h2 className="playerScore">Score: {getScore()}</h2>
+      <div className="playerScore">
+        <h2>Score: {getScore()}</h2>
+      </div>
       <Menu/>
       <Leva
         collapsed={false}
