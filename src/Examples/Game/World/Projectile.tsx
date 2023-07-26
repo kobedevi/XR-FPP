@@ -16,10 +16,8 @@ const Projectile = ({position}: any) => {
 
     useFrame(() => {
         if (!impulseApplied && projectileRef.current && frameCount < 2) {
-            console.log(frameCount);
             const impulseVector = {x:.07, y:0, z:0}; // The direction of the impulse
             if(projectileRef.current !== null){
-                console.log('not null')
                 projectileRef.current.applyImpulse(impulseVector, true);
             }
         }

@@ -31,7 +31,6 @@ export const useGameStore = create(
         set((state) => ({
           currentScore: state.currentScore + 1,
         }));
-        console.log(get().currentScore);
       },
       getScore: () => {
         return get().currentScore;
