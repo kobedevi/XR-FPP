@@ -18,6 +18,11 @@ const Experience = () => {
         Some of my work!
         <meshStandardMaterial color="#00bfff"/>
       </Text3D>
+      {/* @ts-ignore */}
+      <Text3D font={localFont} position={[-9, 4.3, -20]} bevelSegments={5} scale={.4} >
+        Hover/click the boards
+        <meshStandardMaterial color="#00bfff"/>
+      </Text3D>
       <LocalBillboard 
         position={[-15,1,-20]}
         img={paranormax}

@@ -13,7 +13,7 @@ export const useGameStore = create(
       gameState: gameStates.MENU,
       controls: [],
       startGame: () => {
-        set({currentScore: 0, gameState: gameStates.GAME, controls: get().controls.length > 0 ? get().controls : []})
+        set({gameState: gameStates.GAME, controls: get().controls.length > 0 ? get().controls : []})
       },
       setControlsWASD: () => {
         set({controls: KEYBINDINGS.QWERTY})

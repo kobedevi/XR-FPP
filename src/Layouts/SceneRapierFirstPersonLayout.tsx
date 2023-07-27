@@ -70,8 +70,6 @@ const SceneRapierFirstPersonLayout = ({
     }
   }, [getControls()])
 
-
-
   return (
     <>
       <Canvas
@@ -136,12 +134,12 @@ const SceneRapierFirstPersonLayout = ({
       </div>
       <Menu/>
       <Leva
-        collapsed={false}
+        collapsed={true}
         fill={false}
         flat={false}
         hidden={false}
-        oneLineLabels={true}
-        titleBar={true}
+        oneLineLabels={false}
+        titleBar={false}
       />
     </>
   );
