@@ -1,6 +1,6 @@
-import { Cylinder, Plane, MeshReflectorMaterial } from "@react-three/drei";
-import { CuboidCollider, CylinderCollider, RigidBody } from "@react-three/rapier";
-import { DoubleSide, Euler, MathUtils } from "three";
+import { Plane, MeshReflectorMaterial } from "@react-three/drei";
+import { CuboidCollider, RigidBody } from "@react-three/rapier";
+import { Euler, MathUtils } from "three";
 
 const PLANE_SIZE = 50;
 

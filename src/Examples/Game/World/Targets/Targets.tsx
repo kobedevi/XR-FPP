@@ -1,7 +1,6 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Billboard, Plane, Sphere, Text } from '@react-three/drei';
-import { Mesh, Vector3 } from 'three';
+import { Billboard, Plane, Text } from '@react-three/drei';
 import { RigidBody, RapierRigidBody, vec3, CuboidCollider } from '@react-three/rapier';
 import { useGameStore } from '../store';
 import { Donutbox } from '../Donutbox';

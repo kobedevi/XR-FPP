@@ -1,7 +1,5 @@
 import { Box, Text3D  } from '@react-three/drei'
-import React from 'react'
 import localFont from "./fonts/font.json";
-import { BufferAttribute, BufferGeometry } from 'three';
 
 const Sign = ({position}: {position: [number, number, number]}) => {
 

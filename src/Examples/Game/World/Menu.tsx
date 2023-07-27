@@ -1,6 +1,4 @@
-import React from 'react'
 import { gameStates, useGameStore, } from './store'
-import { KEYBINDINGS } from 'Configs/keybindings';
 import sound from "./assets/engine-6000.mp3"
 
 const Menu = () => {
