@@ -12,7 +12,7 @@ import { RigidBody } from '@react-three/rapier'
 export function Donut(props) {
   const { nodes, materials } = useGLTF(donut)
   return (
-    <RigidBody>
+    <RigidBody colliders={"hull"}>
       <group {...props} dispose={null}>
         <group scale={0.261}>
           <mesh geometry={nodes.Circle003.geometry} material={materials['donut back']} />

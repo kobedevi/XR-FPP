@@ -29,24 +29,16 @@ const RapierWorldFloor = (props: any) => {
         <CuboidCollider position={[0, -3.5, 0]} args={[50, 0.1, 50]} sensor />
       </RigidBody>
       <RigidBody
-        colliders={false}
         type="fixed"
-        position-y={-0.5}
-        friction={.25}
-      >
-        <CylinderCollider args={[1 / 2, 15]} />
-        <Cylinder scale={[15, 1, 15]} receiveShadow>
-          <meshStandardMaterial color="white" />
-        </Cylinder>
-      </RigidBody>
-      <RigidBody
-        type="fixed"
-        position-x={-25}
         position-y={-0.2}
         friction={.25}
       >
         <Plane args={args} rotation={rotation}>
-          <meshBasicMaterial color={"CadetBlue"} side={DoubleSide} />
+          <meshBasicMaterial
+            color={0xffffff}
+            opacity={0}
+            transparent
+          />
         </Plane>
       </RigidBody>
     </>

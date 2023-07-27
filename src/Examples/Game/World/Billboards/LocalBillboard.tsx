@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Box, Image, Text } from '@react-three/drei'
+import { RigidBody } from '@react-three/rapier'
 
 const LocalBillboard = ({position, title, text, url="", img}: {position:[number, number, number], title:String, text:String, url:String, img:any}) => {
 
@@ -18,7 +19,7 @@ const LocalBillboard = ({position, title, text, url="", img}: {position:[number,
   }
 
   return (
-    <>
+    <RigidBody type={"fixed"}>
       <group name="billboard" position={position}>
         <group name="legs">
           <Box args={[.2, .8, .25]}>
@@ -85,7 +86,7 @@ const LocalBillboard = ({position, title, text, url="", img}: {position:[number,
           )}
         </group>
       </group>
-    </>
+    </RigidBody>
   )
 }
 
