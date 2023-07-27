@@ -6,7 +6,7 @@ import { BufferAttribute, BufferGeometry } from 'three';
 const Sign = ({position}: {position: [number, number, number]}) => {
 
   return (
-    <group name="sign" position={position}>
+    <group name="sign" position={position} rotation={[0, Math.PI /2, 0]}>
         <Box args={[.2, 5, .2]}>
             <meshStandardMaterial color="#4f3a00" />
         </Box>

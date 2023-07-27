@@ -1,44 +1,75 @@
-import { Billboard, Box, Image, Plane, Text3D } from '@react-three/drei'
-import { useRef } from 'react'
-import LocalBillboard from './Billboards/LocalBillboard'
-import localFont from "./fonts/font.json";
+import { Billboard, Image } from '@react-three/drei'
+import React from 'react'
+import html from './assets/img/html.png'
+import css from './assets/img/css.png'
+import js from './assets/img/js.png'
+import php from './assets/img/php.png'
+import laravel from './assets/img/laravel.png'
+import mysql from './assets/img/mysql.png'
+import node from './assets/img/node.png'
+import react from './assets/img/react.png'
 
-// imgs
-import paranormax from './assets/img/paranormax.png'
-import rs from './assets/img/rsMobile.png'
-import motionCam from './assets/img/motionCam.png'
 
 const Skills = () => {
-  
   return (
-    <>
-      {/* @ts-ignore */}
-      <Text3D font={localFont} position={[-10, 5, -10]} bevelSegments={5} scale={.7} >
-        Some of my work!
-        <meshStandardMaterial color="#4f5242" />
-      </Text3D>
-      <LocalBillboard 
-        position={[-15,1,-10]}
-        img={paranormax}
-        title={"Paranormax"}
-        text={"A Craft CMS site with a custom theme and a react project connected to graphQL as the backend."}
-        url={'https://kodev.be/web/'}
-      />
-      <LocalBillboard 
-        position={[-8,1,-10]}
-        img={rs}
-        title={"RS mobile"}
-        text={"A Laravel project to promote a mobile game. It has a full custom back office with a complete CRUD system for home banners, news posts, custom pages, donations, mailinglists and users."}
-        url={'http://project.kodev.be/'}
-      />
-      <LocalBillboard 
-        position={[-1,1,-10]}
-        img={motionCam}
-        title={"Motion-Cam"}
-        text={"An IoT project: A Raspberry Pi with a camera detects when theres motion, starts recording saves the clip and sends registered users a push-notification. Created with Python, Firebase and React."}
-        url={'https://youtu.be/blITzTevAjU'}
-      />
-    </>
+    <group scale={.5}>
+        <Billboard position={[-30,3,1]}>
+            <Image 
+                scale={2} 
+                url={html}
+                transparent={true} 
+            />
+        </Billboard>
+        <Billboard position={[-30,3,-5]}>
+            <Image 
+                scale={2} 
+                url={css}
+                transparent={true} 
+            />
+        </Billboard>
+        <Billboard position={[-30,3,-11]}>
+            <Image 
+                scale={2} 
+                url={js}
+                transparent={true} 
+            />
+        </Billboard>
+        <Billboard position={[-25,3,1]}>
+            <Image 
+                scale={2} 
+                url={php}
+                transparent={true} 
+            />
+        </Billboard>
+        <Billboard position={[-25,3,-5]}>
+            <Image 
+                scale={2} 
+                url={mysql}
+                transparent={true} 
+            />
+        </Billboard>
+        <Billboard position={[-25,3,-11]}>
+            <Image 
+                scale={2} 
+                url={laravel}
+                transparent={true} 
+            />
+        </Billboard>
+        <Billboard position={[-20,3,-2]}>
+            <Image 
+                scale={2} 
+                url={node}
+                transparent={true} 
+            />
+        </Billboard>
+        <Billboard position={[-20,3,-8]}>
+            <Image 
+                scale={2} 
+                url={react}
+                transparent={true} 
+            />
+        </Billboard>
+    </group>
   )
 }
 
