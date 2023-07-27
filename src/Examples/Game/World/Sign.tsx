@@ -14,7 +14,7 @@ const Sign = ({position}: {position: [number, number, number]}) => {
             <Box args={[2, .7, .2]} position={[0,1.8,.2]}>
                 <meshStandardMaterial color="#ece8e7" />
             </Box>
-            {/* @ts-ignore */}1
+            {/* @ts-ignore */}
             <Text3D font={localFont} position={[-.6,1.6,.3]} bevelSegments={5} scale={.4} >
                 Skills
                 <meshStandardMaterial color="#4f5242" />

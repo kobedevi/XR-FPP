@@ -14,7 +14,7 @@ canvas {
   z-index: 1;
 }
 
-.menu, .playerScore {
+.menu {
   z-index: 5;
   font-family: sans-serif;
   position: absolute;
@@ -53,8 +53,9 @@ canvas {
 }
 
 .playerScore {
-  backdrop-filter: unset;
-  justify-content: flex-start;
-  background: unset;
+  font-family: sans-serif;
+  position: absolute;
   top: 1rem;
+  left: 50%;
+
 }

@@ -75,7 +75,6 @@ const SceneRapierFirstPersonLayout = ({
   return (
     <>
       <Canvas
-        onPointerMove={undefined}
         camera={{position: [0,6,14], fov: 50 }}
         flat={flat}
         frameloop={frameloop}

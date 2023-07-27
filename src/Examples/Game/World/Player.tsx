@@ -1,12 +1,13 @@
 import {
   CubeCamera,
   OrbitControls,
+  PerspectiveCamera,
   PointerLockControls,
   useGLTF,
   useKeyboardControls,
 } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { CuboidCollider, RigidBody, vec3 } from "@react-three/rapier";
+import { RoundCuboidCollider, RigidBody, vec3 } from "@react-three/rapier";
 import { useRef, useState } from "react";
 import { Car } from "./Car";
 import { BoxGeometry, Euler, Mesh, MeshBasicMaterial, Quaternion } from "three";
@@ -28,9 +29,8 @@ const RapierWorldPlayer = (props: any) => {
   
 
   const playerRef = useRef<any>(null!);
-  const pointerRef = useRef<any>(null!);
+  // const pointerRef = useRef<any>(null!);
   const modelRef = useRef<any>(null!);
-  const projectileRef = useRef<any>(null!);
 
   const [projectiles, setProjectiles] = useState([]);
 
@@ -40,21 +40,21 @@ const RapierWorldPlayer = (props: any) => {
   const lastExecutionTimeRef = useRef(0);
   const executionCountRef = useRef(0);
   const maxExecutions = 1; // Change this value to set the maximum number of executions per "time unit" 
-
-  useFrame(() => {
+  
+  useFrame(({camera}) => {
     const impulse = {x:0, y:0, z:0};
-    const camera = pointerRef.current.getObject();
+    // const camera = pointerRef.current.getObject();
     const player = playerRef.current;
     const linvel = playerRef['current'].linvel();
     
-    
-    // // Match Camera position to Player position.
+    // Match Camera position to Player position.
     camera.position.copy(player.translation());
-    camera.position.y += 5.25; // 1.75m
-    camera.position.z += 10; // 1.75m
-    camera.rotation.y = 0;
-    camera.rotation.z = 0;
-    camera.rotation.x = -0.35;
+    camera.position.y += 10.25; // 1.75m
+    camera.position.z += 8; // 1.75m
+    camera.position.x += 8; // 1.75m
+    camera.rotation.y = 0.55;
+    camera.rotation.z = 0.55;
+    camera.rotation.x = -0.825;
     
     // Change rotation of model
     let changeRotation = false;
@@ -69,7 +69,6 @@ const RapierWorldPlayer = (props: any) => {
       executionCountRef.current = 0;
       lastExecutionTimeRef.current = currentTime;
     }
-
     // Shoot and increase executed
     if (shoot && executionCountRef.current < maxExecutions) {
       // Call the function and increment the counter
@@ -85,7 +84,6 @@ const RapierWorldPlayer = (props: any) => {
       setProjectiles((prev) => [...prev, {projectile, carPosition}]);
       executionCountRef.current++;
     }
-
     // Move Player.
     if(moveRightOn && linvel.x < MAX_VEL) {
       impulse.x += MOVEMENT_SPEED;
@@ -123,16 +121,12 @@ const RapierWorldPlayer = (props: any) => {
     <>
       {projectiles.map((projectile, index) => {
         return (
-          // @ts-ignore
-          // <RigidBody ref={projectileRef} onUpdate={() => null} name="projectile" key={index} position={[projectile['carPosition']['x'],projectile['carPosition']['y'],projectile['carPosition']['z']]} >
-          //   <primitive object={clone}/>
-          // </RigidBody>
           <Projectile key={index} position={[projectile['carPosition']['x'],projectile['carPosition']['y'],projectile['carPosition']['z']]}/>
         )
       })}
       <group name="Player" position={[0, 3, 0]} rotation={[0, 0 , 0]} >
-        <PointerLockControls ref={pointerRef} selector="#start" />
-
+        {/* <PointerLockControls ref={pointerRef} selector="#start"/> */}
+ 
         {/* reset if it touches "void plane" */} 
         <RigidBody ref={playerRef} colliders={false} scale={[.5,.5,.5]} enabledRotations={[false,false,false]} rotation={[0,0,0]} onIntersectionEnter={({other}) => {
           if(other.rigidBodyObject !== undefined) {
@@ -142,11 +136,12 @@ const RapierWorldPlayer = (props: any) => {
           }
         }}>
 
-          <CuboidCollider args={[2,4,3.3]} position={[0, 3, 0]} rotation={[0,0,0]}/>
+          <RoundCuboidCollider args={[2,4,3.3, .3]} position={[0, 3, 0]} rotation={[0,0,0]}/>
           <group name="model" ref={modelRef}>
             <Car position={[0, -1, 0]} rotation={[0,Math.PI,0]} enabledRotations={[false,false,false]}/>
           </group>
         </RigidBody>
+
       </group>
     </>
   );
