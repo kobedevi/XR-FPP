@@ -90,7 +90,7 @@ const SceneRapierFirstPersonLayout = ({
           {controls[2]?.keys[1] === 'KeyQ' && (
             <KeyboardControls map={controls}>
               <Physics
-                debug={true}
+                debug={false}
                 colliders={undefined}
                 gravity={[gravity.x, gravity.y, gravity.z]}
                 paused={paused}
@@ -104,7 +104,7 @@ const SceneRapierFirstPersonLayout = ({
           {controls[2]?.keys[1] === 'KeyA' && (
             <KeyboardControls map={controls}>
               <Physics
-                debug={true}
+                debug={false}
                 colliders={undefined}
                 gravity={[gravity.x, gravity.y, gravity.z]}
                 paused={paused}
@@ -118,7 +118,7 @@ const SceneRapierFirstPersonLayout = ({
           {getControls().length === 0 && (
             <KeyboardControls map={KEYBINDINGS.QWERTY}>
             <Physics
-              debug={true}
+              debug={false}
               colliders={undefined}
               gravity={[gravity.x, gravity.y, gravity.z]}
               paused={paused}

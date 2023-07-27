@@ -1,15 +1,29 @@
 {
   "files": {
-    "main.css": "./static/css/main.9fa7f101.css",
-    "main.js": "./static/js/main.6da930f3.js",
-    "static/media/car.glb": "./static/media/car.3bc91c7df38d1faa4c67.glb",
-    "static/media/donut.glb": "./static/media/donut.6673e81a66863dda5954.glb",
-    "index.html": "./index.html",
-    "main.9fa7f101.css.map": "./static/css/main.9fa7f101.css.map",
-    "main.6da930f3.js.map": "./static/js/main.6da930f3.js.map"
+    "main.css": "/2ek-pgmgent-kobedevi/static/css/main.8a42e456.css",
+    "main.js": "/2ek-pgmgent-kobedevi/static/js/main.154c7db9.js",
+    "static/media/rsMobile.png": "/2ek-pgmgent-kobedevi/static/media/rsMobile.ca48947280fcb93cde9d.png",
+    "static/media/motionCam.png": "/2ek-pgmgent-kobedevi/static/media/motionCam.ad451b5fb8fb9c937777.png",
+    "static/media/paranormax.png": "/2ek-pgmgent-kobedevi/static/media/paranormax.70ca21482268b71b4395.png",
+    "static/media/terrain.glb": "/2ek-pgmgent-kobedevi/static/media/terrain.55cd9c40bd6004407394.glb",
+    "static/media/car.glb": "/2ek-pgmgent-kobedevi/static/media/car.3bc91c7df38d1faa4c67.glb",
+    "static/media/donutbox.glb": "/2ek-pgmgent-kobedevi/static/media/donutbox.2d7d13b644c757572c44.glb",
+    "static/media/react.png": "/2ek-pgmgent-kobedevi/static/media/react.6571c56b9f8dde6907d1.png",
+    "static/media/laravel.png": "/2ek-pgmgent-kobedevi/static/media/laravel.5a1262e479e6d134e822.png",
+    "static/media/php.png": "/2ek-pgmgent-kobedevi/static/media/php.886ec0dc682797e9974b.png",
+    "static/media/node.png": "/2ek-pgmgent-kobedevi/static/media/node.939da5170a7edeb8b69a.png",
+    "static/media/mysql.png": "/2ek-pgmgent-kobedevi/static/media/mysql.2b7e2187cea8fd242c33.png",
+    "static/media/html.png": "/2ek-pgmgent-kobedevi/static/media/html.e06bca8df9d3c55ed3f4.png",
+    "static/media/css.png": "/2ek-pgmgent-kobedevi/static/media/css.d3fff1148d0ca483ed42.png",
+    "static/media/donut.glb": "/2ek-pgmgent-kobedevi/static/media/donut.6673e81a66863dda5954.glb",
+    "static/media/engine-6000.mp3": "/2ek-pgmgent-kobedevi/static/media/engine-6000.bd767cd67673ce216179.mp3",
+    "static/media/js.png": "/2ek-pgmgent-kobedevi/static/media/js.5fcdcbed81196ffb1547.png",
+    "index.html": "/2ek-pgmgent-kobedevi/index.html",
+    "main.8a42e456.css.map": "/2ek-pgmgent-kobedevi/static/css/main.8a42e456.css.map",
+    "main.154c7db9.js.map": "/2ek-pgmgent-kobedevi/static/js/main.154c7db9.js.map"
   },
   "entrypoints": [
-    "static/css/main.9fa7f101.css",
-    "static/js/main.6da930f3.js"
+    "static/css/main.8a42e456.css",
+    "static/js/main.154c7db9.js"
   ]
 }
