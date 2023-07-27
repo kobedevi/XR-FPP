@@ -15,6 +15,7 @@ canvas {
 }
 
 .menu {
+  color: white;
   z-index: 5;
   font-family: sans-serif;
   position: absolute;
@@ -53,6 +54,7 @@ canvas {
 }
 
 .playerScore {
+  color: white;
   font-family: sans-serif;
   position: absolute;
   top: 1rem;

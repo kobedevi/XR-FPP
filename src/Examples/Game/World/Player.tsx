@@ -1,19 +1,14 @@
 import {
-  CubeCamera,
-  OrbitControls,
-  PerspectiveCamera,
-  PointerLockControls,
   useGLTF,
   useKeyboardControls,
 } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { RoundCuboidCollider, RigidBody, vec3 } from "@react-three/rapier";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Car } from "./Car";
 import { BoxGeometry, Euler, Mesh, MeshBasicMaterial, Quaternion } from "three";
 import donut from "./assets/donut.glb";
 import Projectile from "./Projectile";
-
 
 const MOVEMENT_SPEED = 2;
 const MAX_VEL = 4;
@@ -39,8 +34,9 @@ const RapierWorldPlayer = (props: any) => {
 
   const lastExecutionTimeRef = useRef(0);
   const executionCountRef = useRef(0);
-  const maxExecutions = 1; // Change this value to set the maximum number of executions per "time unit" 
+  const maxExecutions = 1; // Change this value to set the maximum number of executions per "time unit" '
   
+
   useFrame(({camera}) => {
     const impulse = {x:0, y:0, z:0};
     // const camera = pointerRef.current.getObject();
