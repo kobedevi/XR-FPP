@@ -2,7 +2,8 @@
   "name": "first-person-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://pgmgent-kobedevi.github.io/2ek-pgmgent-kobedevi",
+  "homepage": "/2ek-pgmgent-kobedevi",
+  "proxy": "https://gdmgent-2223-xr.github.io",
   "dependencies": {
     "@react-spring/three": "^9.5.5",
     "@react-three/cannon": "^6.5.0",
